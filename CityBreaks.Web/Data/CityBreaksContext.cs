@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using CityBreaks.Web.Models;
 
 namespace CityBreaks.Web.Data;
 
@@ -8,4 +9,6 @@ public class CityBreaksContext : DbContext
         : base(options)
     {
     }
+
+    public DbSet<Country> Countries { get; set; } = null!;
 }

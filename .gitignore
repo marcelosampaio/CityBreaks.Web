@@ -1,5 +1,8 @@
+# .NET build
 bin/
 obj/
-/packages/
-riderModule.iml
-/_ReSharper.Caches/
+
+# SQLite local database
+*.db
+*.db-shm
+*.db-wal
