@@ -1,10 +1,38 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "CityBreaks";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <h1 class="mb-4">Cities and Properties</h1>
+
+    @foreach (var city in Model.Cities)
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">@city.Name</h2>
+                <h5 class="card-subtitle mb-3 text-muted">@city.Country.CountryName</h5>
+
+                @if (city.Properties.Any())
+                {
+                    <h6>Properties</h6>
+
+                    <ul class="list-group">
+                        @foreach (var property in city.Properties)
+                        {
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>@property.Name</span>
+                                <span>@property.PricePerNight.ToString("C")</span>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>No properties registered.</p>
+                }
+            </div>
+        </div>
+    }
 </div>

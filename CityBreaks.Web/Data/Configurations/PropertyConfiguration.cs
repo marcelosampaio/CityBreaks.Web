@@ -54,6 +54,13 @@ public class PropertyConfiguration : IEntityTypeConfiguration<Property>
                 Name = "Hôtel de Lyon",
                 PricePerNight = 420.00m,
                 CityId = 6
+            },
+            new Property
+            {
+                Id = 7,
+                Name = "Pousada Vila Planalto",
+                PricePerNight = 280.00m,
+                CityId = 1
             }
         );
     }

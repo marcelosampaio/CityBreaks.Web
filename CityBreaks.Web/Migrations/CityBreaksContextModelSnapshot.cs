@@ -181,6 +181,13 @@ namespace CityBreaks.Web.Migrations
                             CityId = 6,
                             Name = "Hôtel de Lyon",
                             PricePerNight = 420.00m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CityId = 1,
+                            Name = "Pousada Vila Planalto",
+                            PricePerNight = 280.00m
                         });
                 });
 
