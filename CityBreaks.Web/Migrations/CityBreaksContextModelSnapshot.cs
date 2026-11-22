@@ -27,6 +27,7 @@ namespace CityBreaks.Web.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -48,6 +49,7 @@ namespace CityBreaks.Web.Migrations
 
                     b.Property<string>("CountryName")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -66,7 +68,9 @@ namespace CityBreaks.Web.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("InterestPoint");
 
                     b.Property<decimal>("PricePerNight")
                         .HasColumnType("TEXT");
