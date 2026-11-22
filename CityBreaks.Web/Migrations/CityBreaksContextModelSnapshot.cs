@@ -55,6 +55,29 @@ namespace CityBreaks.Web.Migrations
                     b.ToTable("Countries");
                 });
 
+            modelBuilder.Entity("CityBreaks.Web.Models.Property", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("PricePerNight")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.ToTable("Properties");
+                });
+
             modelBuilder.Entity("CityBreaks.Web.Models.City", b =>
                 {
                     b.HasOne("CityBreaks.Web.Models.Country", "Country")
@@ -64,6 +87,22 @@ namespace CityBreaks.Web.Migrations
                         .IsRequired();
 
                     b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("CityBreaks.Web.Models.Property", b =>
+                {
+                    b.HasOne("CityBreaks.Web.Models.City", "City")
+                        .WithMany("Properties")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("City");
+                });
+
+            modelBuilder.Entity("CityBreaks.Web.Models.City", b =>
+                {
+                    b.Navigation("Properties");
                 });
 
             modelBuilder.Entity("CityBreaks.Web.Models.Country", b =>
