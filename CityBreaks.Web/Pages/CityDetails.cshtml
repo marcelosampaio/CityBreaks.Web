@@ -1,0 +1,42 @@
+@page
+@model CityDetailsModel
+@{
+    ViewData["Title"] = "City Details";
+}
+
+<div class="container">
+    <h1 class="mb-4">City Details</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">@Model.City!.Name</h2>
+
+            <h5 class="card-subtitle mb-4 text-muted">
+                @Model.City.Country.CountryName
+            </h5>
+
+            <h4>Properties</h4>
+
+            @if (Model.City.Properties.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var property in Model.City.Properties)
+                    {
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>@property.Name</span>
+                            <span>@property.PricePerNight.ToString("C")</span>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No properties registered.</p>
+            }
+
+            <a asp-page="/Index" class="btn btn-secondary mt-4">
+                Back to Cities
+            </a>
+        </div>
+    </div>
+</div>
