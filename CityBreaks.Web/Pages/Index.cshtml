@@ -5,7 +5,13 @@
 }
 
 <div class="container">
-    <h1 class="mb-4">Cities and Properties</h1>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Cities and Properties</h1>
+
+        <a asp-page="/CreateProperty" class="btn btn-secondary">
+            Create Property
+        </a>
+    </div>
 
     @foreach (var city in Model.Cities)
     {
@@ -36,7 +42,7 @@
                 <a asp-page="/CityDetails"
                    asp-route-name="@city.Name"
                    class="btn btn-secondary mt-3">
-                   View Details
+                    View Details
                 </a>
             </div>
         </div>

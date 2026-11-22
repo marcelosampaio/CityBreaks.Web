@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
 namespace CityBreaks.Web.Models;
 
 public class Property
@@ -6,5 +8,7 @@ public class Property
     public string Name { get; set; } = string.Empty;
     public decimal PricePerNight { get; set; }
     public int CityId { get; set; }
+
+    [ValidateNever]
     public City City { get; set; } = null!;
 }
