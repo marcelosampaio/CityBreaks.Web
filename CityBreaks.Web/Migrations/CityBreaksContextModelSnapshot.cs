@@ -35,6 +35,44 @@ namespace CityBreaks.Web.Migrations
                     b.HasIndex("CountryId");
 
                     b.ToTable("Cities");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CountryId = 1,
+                            Name = "Brasília"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CountryId = 1,
+                            Name = "Rio de Janeiro"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CountryId = 2,
+                            Name = "Lisboa"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CountryId = 2,
+                            Name = "Porto"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CountryId = 3,
+                            Name = "Paris"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CountryId = 3,
+                            Name = "Lyon"
+                        });
                 });
 
             modelBuilder.Entity("CityBreaks.Web.Models.Country", b =>
@@ -55,6 +93,26 @@ namespace CityBreaks.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Countries");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CountryCode = "BR",
+                            CountryName = "Brasil"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CountryCode = "PT",
+                            CountryName = "Portugal"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CountryCode = "FR",
+                            CountryName = "França"
+                        });
                 });
 
             modelBuilder.Entity("CityBreaks.Web.Models.Property", b =>
@@ -80,6 +138,50 @@ namespace CityBreaks.Web.Migrations
                     b.HasIndex("CityId");
 
                     b.ToTable("Properties");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CityId = 1,
+                            Name = "Hotel Brasília Central",
+                            PricePerNight = 350.00m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CityId = 2,
+                            Name = "Copacabana Palace",
+                            PricePerNight = 1200.00m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CityId = 3,
+                            Name = "Hotel Avenida Palace",
+                            PricePerNight = 650.00m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CityId = 4,
+                            Name = "PortoBay Flores",
+                            PricePerNight = 580.00m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CityId = 5,
+                            Name = "Hôtel des Arts",
+                            PricePerNight = 750.00m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CityId = 6,
+                            Name = "Hôtel de Lyon",
+                            PricePerNight = 420.00m
+                        });
                 });
 
             modelBuilder.Entity("CityBreaks.Web.Models.City", b =>

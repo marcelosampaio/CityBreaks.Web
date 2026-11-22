@@ -10,5 +10,26 @@ public class CountryConfiguration : IEntityTypeConfiguration<Country>
     {
         builder.Property(c => c.CountryName)
             .HasMaxLength(100);
+        
+        builder.HasData(
+            new Country
+            {
+                Id = 1,
+                CountryCode = "BR",
+                CountryName = "Brasil"
+            },
+            new Country
+            {
+                Id = 2,
+                CountryCode = "PT",
+                CountryName = "Portugal"
+            },
+            new Country
+            {
+                Id = 3,
+                CountryCode = "FR",
+                CountryName = "França"
+            }
+        );
     }
 }
