@@ -11,4 +11,5 @@ public class CityBreaksContext : DbContext
     }
 
     public DbSet<Country> Countries { get; set; } = null!;
+    public DbSet<City> Cities { get; set; } = null!;
 }
