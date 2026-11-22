@@ -27,9 +27,18 @@
                     <ul class="list-group">
                         @foreach (var property in city.Properties)
                         {
-                            <li class="list-group-item d-flex justify-content-between">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <span>@property.Name</span>
-                                <span>@property.PricePerNight.ToString("C")</span>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <span>@property.PricePerNight.ToString("C")</span>
+
+                                    <a asp-page="/EditProperty"
+                                       asp-route-id="@property.Id"
+                                       class="btn btn-secondary btn-sm">
+                                        Edit
+                                    </a>
+                                </div>
                             </li>
                         }
                     </ul>
