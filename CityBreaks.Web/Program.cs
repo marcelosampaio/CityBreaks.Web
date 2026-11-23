@@ -14,6 +14,8 @@ builder.Services.AddDbContext<CityBreaksContext>(options =>
 
 builder.Services.AddScoped<ICityService, CityService>();
 
+builder.Services.AddScoped<IPropertyService, PropertyService>();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

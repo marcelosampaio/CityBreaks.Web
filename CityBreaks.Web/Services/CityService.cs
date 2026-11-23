@@ -17,7 +17,7 @@ public class CityService : ICityService
     {
         return await _context.Cities
             .Include(c => c.Country)
-            .Include(c => c.Properties)
+            .Include(c => c.Properties.Where(p => p.DeletedAt == null))
             .ToListAsync();
     }
 
@@ -25,7 +25,7 @@ public class CityService : ICityService
     {
         return await _context.Cities
             .Include(c => c.Country)
-            .Include(c => c.Properties)
+            .Include(c => c.Properties.Where(p => p.DeletedAt == null))
             .FirstOrDefaultAsync(c =>
                 EF.Functions.Collate(c.Name, "NOCASE") == name
             );
